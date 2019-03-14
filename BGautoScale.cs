@@ -11,13 +11,13 @@ public class bgScaleHeadache : MonoBehaviour {
 	
 	// Update is called once per frame
 	void resize () {
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        	SpriteRenderer sr = GetComponent<SpriteRenderer>();
 
-        float worldScreenHeight = Camera.main.orthographicSize * 2;
-        float worldScreenWidth = worldScreenHeight / Screen.height * Screen.width;
+        	float worldScreenHeight = Camera.main.orthographicSize * 2;
+        	float worldScreenWidth = worldScreenHeight / Screen.height * Screen.width;
 
-        transform.localScale = new Vector3(
-            worldScreenWidth / sr.sprite.bounds.size.x,
-            worldScreenHeight / sr.sprite.bounds.size.y, 1);
+        	transform.localScale = new Vector3(
+            	worldScreenWidth / sr.sprite.bounds.size.x,
+            	worldScreenHeight / sr.sprite.bounds.size.y, 1);
     }
 }
