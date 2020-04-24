@@ -3,31 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class cameraColor : MonoBehaviour {
+        private Camera camera;
 
-    // Use this for initialization
+        public float duration = 3.0F;
 
-    Camera cam;
+        public Color color1, color2;
 
-    public float duration = 3.0F;
+        private void OnEnable()
+        {
+            camera = GetComponent<Camera>();
+            camera.clearFlags = CameraClearFlags.SolidColor;
+        }
 
-    public Color c1, c2;
-
-    void Start()
-    {
-        cam = GetComponent<Camera>();
-
-        cam.clearFlags = CameraClearFlags.SolidColor;
-
-    }
-
-
-        // Update is called once per frame
-        void Update() {
-
-        float t = Mathf.PingPong(Time.time, duration) / duration;
-        cam.backgroundColor = Color.Lerp(c1, c2, t);
-      
-   
-
-    }
+        private void Update()
+        {
+            var t = Mathf.PingPong(Time.time, duration) / duration;
+            camera.backgroundColor = Color.Lerp(color1, color2, t);
+        }
     } 
